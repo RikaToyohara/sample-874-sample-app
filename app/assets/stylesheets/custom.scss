@@ -23,6 +23,17 @@ textarea {
   margin-bottom: 10px;
 }
 
+.label-form {
+  margin-top: 5px;
+}
+
+.btn-form {
+  margin-top: 10px;
+}
+
+
+
+
 /* タイポグラフィ */
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,17 +42,19 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
+  font-style: italic;
+  font-weight: bold;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 3em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
-  font-weight: normal;
+  font-weight: nomal;
   color: #777;
 }
 
