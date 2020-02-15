@@ -1,0 +1,9 @@
+<% provide(:title, @user.name) %>
+
+<h1><%= @user.name %>のタスク一覧</h1>
+
+<tbody>
+    <% @tasks.each do |task| %>
+    <td><%= link_to task.name, user_tasks_path(current_user) %></td>
+    <% end %>
+</tbody>
