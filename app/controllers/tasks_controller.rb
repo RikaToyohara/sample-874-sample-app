@@ -1,6 +1,16 @@
 class TasksController < ApplicationController
+  before_action :set_user
+  
   def index
-    @user = User.find_by(params[:id])
     @tasks = @user.tasks
+  end
+  
+  def show
+  end
+  
+  private
+  
+  def set_user
+      @user = User.find(params[:user_id])
   end
 end
