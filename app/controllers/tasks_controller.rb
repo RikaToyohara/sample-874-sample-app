@@ -16,7 +16,7 @@ class TasksController < ApplicationController
   
   def create
     @tasks = @user.tasks.build(task_params)
-    if @task.save
+    if @tasks.save
       flash[:success] = "タスクを新規作成しました。"
       redirect_to user_tasks_url @user
     else
@@ -39,6 +39,7 @@ class TasksController < ApplicationController
   end
   
   def destroy
+    @task = Task.find(params[:id])
     @task.destroy
     flash[:success] = "タスクを削除しました。"
     redirect_to user_tasks_url @user
@@ -54,5 +55,4 @@ class TasksController < ApplicationController
   def set_user
       @user = User.find(params[:user_id])
   end
-  
 end
