@@ -32,7 +32,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update(task_params)
       flash[:success] = "タスクを更新しました。"
-      redirect_to user_task_url(@user, @task)
+      redirect_to user_tasks_url @user
     else
       render :edit
     end
