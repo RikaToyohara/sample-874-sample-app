@@ -1,6 +1,6 @@
 # coding: utf-8
 
-User.create!( name: "Sample User",
+User.create!( name: "管理者",
               email: "sample@email.com",
               password: "password",
               password_confirmation: "password",
@@ -14,4 +14,21 @@ User.create!( name: "Sample User",
                email: email,
                password: password,
                password_confirmation: password)
-end              
+end 
+
+puts "Users Created"
+
+admin_user = User.first
+guest_user = User.find(2)
+guest_user = User.find(3)
+guest_user = User.find(4)
+
+
+50.times do |n|
+  task_name = "タスク#{n + 1}"
+  description = "タスク詳細#{n + 1}"
+  admin_user.tasks.create!(name: task_name, description: description)
+  guest_user.tasks.create!(name: task_name, description: description)
+end
+
+puts "Tasks Created"
