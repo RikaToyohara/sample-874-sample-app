@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   
   def index
-    @tasks = @user.tasks
+    @task = @user.tasks
   end
   
   def show
