@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   
   def index
     @tasks = @user.tasks
+    @tasks = Task.all.order(created_at: :desc)
   end
   
   def show
