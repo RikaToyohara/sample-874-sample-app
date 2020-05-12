@@ -5,9 +5,17 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <%= form_with(model: @task, url: user_task_path(@user, @task), local: true, method: :patch) do |f| %>
+       <% if @task.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    入力した内容に<%= pluralize(@task.errors.count,"error") %>件のエラーがあります。
+    <ul>
       <% @task.errors.full_messages.each do |message| %>
-        <div class="form-error"><%= message %></div>
+        <li><%= message %></li>
       <% end %>
+    </ul>
+  </div>
+    <% end %>
+      
       <%= f.label :名称, class: "label-form" %>
       <%= f.text_field :name, class: "form-control" %>
 
@@ -19,4 +27,3 @@
     <% end %>
   </div>
 </div>
-
