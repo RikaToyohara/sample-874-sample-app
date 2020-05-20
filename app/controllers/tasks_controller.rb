@@ -1,10 +1,12 @@
 class TasksController < ApplicationController
   before_action :set_user
   before_action :set_task, only: %i(show edit update destroy)
-
+  before_action :logged_in_user
+  before_action :correct_user
+  
   
   def index
-    @tasks = @user.tasks
+    
     @tasks = Task.all.order(created_at: :desc)
   end
   
@@ -31,10 +33,9 @@ class TasksController < ApplicationController
   end
   
   def update
-    @task = Task.find(params[:id])
     if @task.update(task_params)
       flash[:success] = "タスクを更新しました。"
-      redirect_to user_tasks_url @user
+      redirect_to user_tasks_url(@user, @task)
     else
       render :edit
     end
