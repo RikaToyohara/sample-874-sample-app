@@ -32,8 +32,12 @@
         <%= f.check_box :remember_me, id: "remember-me" %>
         <span>ログイン情報を記憶する</span>
       <% end %>
-
+      
+      <% if current_user %>
+      <a class="btn btn-primary btn-block btn-login disabled">ログイン状態です</a>
+      <% else %>
       <%= f.submit "Log In", class: "btn btn-primary btn-block btn-login" %>
+      <% end %>
     <% end %>
     <p>
       ユーザー登録がまだの場合は<%= link_to "こちら", signup_path %>
