@@ -34,7 +34,7 @@
       <% end %>
       
       <% if current_user %>
-      <a class="btn btn-primary btn-block btn-login disabled">ログイン状態です</a>
+      <%= f.submit "ログイン状態です", class: "btn btn-primary btn-block btn-login disabled" %>
       <% else %>
       <%= f.submit "Log In", class: "btn btn-primary btn-block btn-login" %>
       <% end %>
